@@ -15,7 +15,7 @@
         }while(feof($file) != true);
         fclose($file);*/
 
-        $file = fopen("archivo.txt", "a");
+        /*$file = fopen("archivo.txt", "a");
         fwrite($file, "\nEddy,175,1358,NA,green-tan, brown,orange,600,hermaphrodite");
         fclose($file);
         $file = fopen("archivo.txt", "r");
@@ -23,7 +23,9 @@
             echo fgets($file);
             echo"<br>";
         }while(feof($file) != true);
-        fclose($file);
+        fclose($file);*/
+
+        
     ?>
 </body>
 </html>
