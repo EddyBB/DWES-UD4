@@ -8,8 +8,8 @@
 </head>
 <body>
     <?php
-        $mysqli = mysqli_connect("localhost","developer","developer","agenciaviajes");
-        $error = mysqli_errno($mysqli);
+        @$mysqli = mysqli_connect("localhost","developer","developer","agenciaviajes");
+        $error = mysqli_connect_errno($mysqli);
         if($error != null){
 
             echo "<p> Error $error conectando a la base de datos:", mysqli_error($mysqli), "</p>";
@@ -19,6 +19,18 @@
             echo "Conectado correctamente";
             echo "<br>";
         }
+        $result = mysqli_query($mysqli,"SELECT * FROM `vuelos`");
+        if($result == false){
+            echo "La consulta no ha funcionado correctamente";
+        } else {
+            while($fila=mysqli_fetch_assoc($result)){
+                print_r($fila);
+                echo "<br>";
+                echo $fila["Fecha"];
+                echo "<br>";
+            }
+        }
+        //var_dump($result);
         mysqli_close($mysqli);
     ?>
 </body>
