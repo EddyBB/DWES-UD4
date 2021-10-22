@@ -23,13 +23,29 @@
         if($result == false){
             echo "La consulta no ha funcionado correctamente";
         } else {
-            while($fila=mysqli_fetch_assoc($result)){
-                print_r($fila);
-                echo "<br>";
-                echo $fila["Fecha"];
-                echo "<br>";
-            }
+            echo "<table border = '1'>";
+                echo "<tr>";
+                echo "<th>id</th>";
+                echo "<th>Origen</th>";
+                echo "<th>Destino</th>";
+                echo "<th>Fecha</th>";
+                echo "<th>Companya</th>";
+                echo "<th>ModeloAvion</th>";
+                echo "</tr>";
+                while($fila=mysqli_fetch_assoc($result)){
+                    echo "<tr>";
+                    echo "<td>$fila[id]</td>";
+                    echo "<td>$fila[Origen]</td>";
+                    echo "<td>$fila[Destino]</td>";
+                    echo "<td>$fila[Fecha]</td>";
+                    echo "<td>$fila[Companya]</td>";
+                    echo "<td>$fila[ModeloAvion]</td>";
+                    echo "</tr>";
+                }
+            echo "</table>";
         }
+
+        
         //var_dump($result);
         mysqli_close($mysqli);
     ?>
