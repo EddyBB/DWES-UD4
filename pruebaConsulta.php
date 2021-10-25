@@ -26,6 +26,7 @@
                     mysqli_stmt_bind_param($stmt, "si", $origen, $id);
                     mysqli_stmt_execute($stmt);
                     // Fetch data here
+                    .
                     
                     mysqli_stmt_bind_result($stmt, $id, $origen, $destino, $fecha, $companya, $modeloAvion);
                         while(mysqli_stmt_fetch($stmt)){
