@@ -46,7 +46,31 @@
             echo "<br>";
         }
         //var_dump($result);
+        
+        $result = mysqli_query($mysqli,"DELETE FROM `vuelos` WHERE Origen = 'Huelva'");
+        if($result == false){
+            echo "La consulta no ha funcionado correctamente";
+        } else{
+            echo "Se han borrado ", mysqli_affected_rows($mysqli), " filas";
+        }
+
+        $result = mysqli_query($mysqli, "INSERT INTO `vuelos` (Origen, Destino, Fecha, Companya, ModeloAvion) VALUES('Madrid','Valencia','2021-10-21 09:16:52', 'Iberia', 'A380')");
+        if($result == false){
+            echo "La consulta no ha funcionado correctamente";
+        } else{
+            echo "Se han insertado ", mysqli_affected_rows($mysqli), " filas.";
+            echo "<br>";
+            echo "El id del último elemento añadido es ", mysqli_insert_id($mysqli);
+        }
+
+        $result = mysqli_query($mysqli, "UPDATE `vuelos` SET `Origen`= 'Dos Hermanas' WHERE `id` = '6'");
+        if($result == false){
+            echo "La consulta no ha funcionado correctamente";
+        } else {
+            echo "Se han actualizado ", mysqli_affected_rows($mysqli), " filas.";
+        }
         mysqli_close($mysqli);
+        echo "<br>";
 
         @$mysqli = mysqli_connect("localhost","developer","developer","agenciaviajes");
         $error = mysqli_connect_errno($mysqli);
