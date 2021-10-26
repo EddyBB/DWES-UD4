@@ -10,10 +10,7 @@
     <?php
         include "ejercicio6.php";
 
-        $user = "developer";
-        $password = "developer";
-        $bd = "agenciaviajes";
-        creaConexion($user,$password,$bd);
+        creaConexion();
 
         $origen='Huelva';
         $destino= 'Dos Hermanas';
@@ -21,8 +18,14 @@
         $companya= 'Iberia';
         $modeloAvion='A385';
     
-        $conexion = creaConexion($user,$password,$bd);
-        creaVuelo($conexion,$origen, $destino, $fecha, $companya, $modeloAvion);
+        creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion);
+        modificaDestino("2", "Narnia");
+        modificaCompanya("2", "ArmarioRoble");
+        $Vuelos = extraeVuelos();
+        while($fila = mysqli_fetch_assoc($Vuelos)){
+            print_r($fila);
+            echo "<br>";
+        }
     ?>
 </body>
 </html>
