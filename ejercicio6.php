@@ -15,14 +15,15 @@
     }
 
     function creaVuelo($origen, $destino, $fecha, $companya, $modeloAvion){
-        $conexion = creaConexion();
+        $mysqli = creaConexion();
         $slq = "INSERT INTO `vuelos` (Origen, Destino, Fecha, Companya, ModeloAvion) VALUES(?,?,?,?,?)";
-        $consulta = mysqli_stmt_init($conexion);
-        if($stmt = mysqli_prepare($conexion , $slq)){
+        $consulta = mysqli_stmt_init($mysqli);
+        if($stmt = mysqli_prepare($mysqli , $slq)){
             mysqli_stmt_bind_param($stmt, "sssss", $origen, $destino, $fecha, $companya, $modeloAvion);
             mysqli_stmt_execute($stmt);
             mysqli_stmt_close($stmt);
         }
+        mysqli_close($mysqli);
     }
     
     function modificaDestino($id, $destino){
