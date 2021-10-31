@@ -42,7 +42,7 @@ function modificaDestino($destino,$id){
 
 function modificaCompanya($id, $companya){
     $mysqli = creaConexion();
-    $sql = "UPDATE  vuelos SET Companya = ? WHERE id=? ";
+    $sql = "UPDATE  vuelos SET Companya = ? WHERE id=?";
     $mysqli -> stmt_init();
     $retorno=false;
     if ($stmt = $mysqli->prepare($sql)) {

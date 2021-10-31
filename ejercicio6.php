@@ -54,7 +54,7 @@
         return $retorno;
     }
 
-    function eliminaVuelo(){
+    function eliminaVuelo($id){
         $mysqli = creaConexion();
         $retorno = false;
         $sql = "DELETE FROM `vuelos` WHERE `id` = ?";
