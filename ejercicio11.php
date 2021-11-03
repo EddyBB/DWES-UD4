@@ -58,7 +58,7 @@
     function actualizaTurista($id,$direccion,$telefono){
         $conexion = crearConexion();
         $sql = $conexion->prepare("UPDATE turista SET direccion = ?,telefono = ? WHERE id=?");
-        $retorno = false;
+        
         //el numero se refiere a la posición del query en este caso el 3 para el id
         $sql->bindParam(3,$id);
         $sql->bindParam(1,$direccion);
