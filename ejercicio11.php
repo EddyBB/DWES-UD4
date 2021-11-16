@@ -73,6 +73,7 @@
         $sql = $conexion->prepare("DELETE FROM `turista` WHERE `id` = ?");
         $sql->bindParam(1,$id);
         $retorno = $sql->execute();
+        return $retorno;
     }
 
     //crearTurista("Pepe","LOpez","Marquez","Calle Alpino","965478952");
